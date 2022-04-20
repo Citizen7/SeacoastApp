@@ -1,0 +1,90 @@
+@using SeacoastApp.Data
+@using SeacoastApp.Models
+@model EmpProfile
+
+@{
+    ViewData["Title"] = "Employee Profile";
+    // Save the IDs here so that they can be fed back into the form at the end
+    int thisEmpID = Model.EmployeeID;
+    int thisAddID = Model.AddressID;
+    int thisSUID = Model.SalesUnitID;
+    Console.WriteLine($"Emp {thisEmpID}, Add {thisAddID}, SU {thisSUID}");
+}
+
+<form asp-controller="Home" asp-action="EmpProfile" method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Employee Profile</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="row mb-3">
+            <div class="text-center"><h4>Person Details</h4></div>
+            <div class="col-md-6">
+                <label asp-for="Employee.FirstName"></label>
+                <input asp-for="Employee.FirstName" class="form-control" />
+                <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Employee.LastName"></label>
+                <input asp-for="Employee.LastName" class="form-control" />
+                <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="Employee.Title"></label>
+                <input asp-for="Employee.Title" class="form-control" />
+                <span asp-validation-for="Employee.Title" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="SalesUnit.UnitsSold"></label>
+                <input asp-for="SalesUnit.UnitsSold" class="form-control" />
+                <span asp-validation-for="SalesUnit.UnitsSold" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Employee.DateOfHire"></label>
+                <input asp-for="Employee.DateOfHire" class="form-control" />
+                <span asp-validation-for="Employee.DateOfHire" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="text-center"><h4>Address</h4></div>
+            <div class="col-md-4">
+                <label asp-for="Address.Address1"></label>
+                <input asp-for="Address.Address1" class="form-control" />
+                <span asp-validation-for="Address.Address1" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label asp-for="Address.Address2"></label>
+                <input asp-for="Address.Address2" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label asp-for="Address.Zip"></label>
+                <input asp-for="Address.Zip" class="form-control" />
+            </div>
+        </div>
+        <div class="row mb-3">            
+            <div class="col-md-6">
+                <label asp-for="Address.Phone"></label>
+                <input asp-for="Address.Phone" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Address.Email"></label>
+                <input asp-for="Address.Email" class="form-control" />
+            </div>            
+        </div>
+        @*! Hidden fields to make sure the ID values stay constant. *@
+        <input asp-for="EmployeeID" type="hidden" value="@thisEmpID" />
+        <input asp-for="SalesUnitID" type="hidden" value="@thisSUID" />
+        <input asp-for="AddressID" type="hidden" value="@thisAddID" />
+        <input asp-for="Employee.EmployeeID" type="hidden" value="@thisEmpID" />
+        <input asp-for="Address.EmployeeID" type="hidden" value="@thisEmpID" />
+        <input asp-for="Address.AddressID" type="hidden" value="@thisAddID" />
+        <input asp-for="SalesUnit.EmployeeID" type="hidden" value="@thisEmpID" />
+        <input asp-for="SalesUnit.SaleUnitID" type="hidden" value="@thisSUID" />
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-seconary">Back</a>
+    </div>
+</form>

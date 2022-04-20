@@ -1,0 +1,34 @@
+[
+  {
+    "EmployeeId": 1,
+    "Address1": "23 Main St",
+    "Address2": "",
+    "Zip": "02140",
+    "Phone": "617-123-3211",
+    "Email": "Test1@Test.com"
+  },
+  {
+    "EmployeeId": 2,
+    "Address1": "44 Cedar St",
+    "Address2": "Apt 2",
+    "Zip": "02148",
+    "Phone": "617-321-8888",
+    "Email": "Test2@Test.com"
+  },
+  {
+    "EmployeeId": 3,
+    "Address1": "243 Main St",
+    "Address2": "",
+    "Zip": "32140",
+    "Phone": "777-123-7771",
+    "Email": "Test3@Test.com"
+  },
+  {
+    "EmployeeId": 4,
+    "Address1": "100 Broadway St",
+    "Address2": "Apt 3",
+    "Zip": "02132",
+    "Phone": "444-123-3211",
+    "Email": "Test4@Test.com"
+  }
+]

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Employee List</h1>
+    <table class="table table-bordered table-striped" style="width:100%">
+        @* Create the headers with a blank column for the button *@
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>EmployeeID</th>
+                <th>Description</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Title</th>
+                <th>Total Units</th>
+                <th>Date Of Hire</th>
+            </tr>
+        </thead>
+        <tbody>
+            @* TODO: Add null check here. Not necessary for basic test data, but would be necessary in any live scenario. *@
+            @* * Create one row for each entry returned on the model *@
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a class="btn btn-primary mx-2" asp-controller="Home" asp-action="EmpProfile" asp-route-empId="@item.EmployeeID">                            
+                            <strong><i class="bi bi-pencil-square"></i>&nbsp; Select</strong>
+                        </a>
+                    </td>
+                    <td>@item.EmployeeID</td>
+                    <td>@if(item.TotalUnits > 20) 
+                        {
+                            <span>Well Done!</span>
+                        }
+                    </td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Title</td>
+                    <td>@item.TotalUnits</td>
+                    <td>@item.DateOfHire</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

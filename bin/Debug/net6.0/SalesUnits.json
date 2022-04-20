@@ -1,0 +1,18 @@
+[
+  {
+    "EmployeeId": 1,
+    "UnitsSold": 20
+  },
+  {
+    "EmployeeId": 2,
+    "UnitsSold": 200
+  },
+  {
+    "EmployeeId": 3,
+    "UnitsSold": 20
+  },
+  {
+    "EmployeeId": 4,
+    "UnitsSold": 50
+  }
+]
